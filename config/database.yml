@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: twijector_development
+  pool: 5
+  username: twijector
+  password: twijector
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: twijector_test
+  pool: 5
+  username: twijector
+  password: twijector
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: twijector_production
+  pool: 5
+  username: twijector
+  password:
