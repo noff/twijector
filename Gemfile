@@ -13,3 +13,4 @@ end
 gem 'jquery-rails'
 gem 'thin'
 gem 'capistrano'
+gem 'omniauth-twitter'
