@@ -1,18 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Twijector</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <% if current_user %>
-      Signed in as <%= current_user.name %>!
-      <%= link_to "Sign out", signout_path %>
-    <% else %>
-      <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-    <% end %>
-    <%= yield %>
-  </body>
+<html lang="en">
+<head>
+	<%= render "layouts/head" %>
+</head>
+
+<body>
+
+    <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to image_tag("logo.png"), root_path, :title => "Twijector", :class => "brand" %>
+			<ul class="nav">
+				<% if !signed_in? %>
+					<li class="sign-up"><%= link_to "Sign Up", new_user_registration_path %></li>
+					<li class="sign-in"><%= link_to "Sign In", new_user_session_path %></li>
+				<% end %>
+			</ul>
+        </div>
+      </div>
+    </div>
+
+	<div class="slider">
+		<div class="container">
+			<div class="row">
+				<div class="span6">
+					123
+				</div>
+				<div class="span6">
+					<h1>What Twijector is...</h1>
+					<p>Twijector — real-time twitter wall for conferences, events, cafe and classrooms.</p>
+					<%= form_tag %>
+					<%= text_field_tag :tag %>
+					<%= submit_tag "Try now!" %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="container">
+
+		<div class="row">
+          <div class="span12">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+        </div>
+
+
+		<footer>
+			<p>&copy; Company 2013</p>
+
+			<div class="row">
+				<div class="fb-like" data-href="http://twijector.com" data-send="true" data-layout="button_count" data-width="165" data-show-faces="false"></div>
+			</div>
+			<div class="row">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twijector.com" data-text="Free twitter-wall for events and clubs – " data-via="twijector">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			<div class="row">
+				<g:plusone size="medium" href="http://twijector.com"></g:plusone>
+			</div>
+
+
+		</footer>
+
+    </div>
+
+	<%= javascript_include_tag "application" %>
+	<%= yield(:scripts) if content_for?(:scripts) %>
+
+</body>
 </html>

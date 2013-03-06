@@ -1,0 +1,37 @@
+body {
+  padding-top: 40px !important;
+  background: #202020;
+  color: #fff;
+}
+
+.navbar {
+  .brand {
+    padding: 4px 0 0 20px;
+  }
+  .nav {
+    float: right;
+    .sign-up {
+      font-weight: bold;
+      a {
+        color: greenyellow;
+      }
+    }
+    .sign-in {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+.slider {
+  background: #303030;
+  height:  300px;
+  padding: 20px;
+
+  .photos {
+
+  }
+
+}
